@@ -3,10 +3,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -60,11 +59,14 @@ public class InputOutput {
                 scan.close();
             }
             reader.close();
-            Set<Entry<String, Integer>> entrySet = map.entrySet();
+            List<Map.Entry<String, Integer>> entries = new ArrayList<>(map.entrySet());
 
-            for (Entry<String, Integer> entry : entrySet) {
+            entries.sort(Map.Entry.<String, Integer>comparingByValue().reversed());
+
+            for (Map.Entry<String, Integer> entry :entries) {
                 result.append(entry.getKey()).append("\t").append(entry.getValue()).append("\n");
             }
+
 
         } catch (IOException e) {
             e.printStackTrace();
