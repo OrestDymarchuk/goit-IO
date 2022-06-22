@@ -80,6 +80,5 @@ public class InputOutput {
 
         System.out.println(requestedData.validNumbers());
         System.out.println(requestedData.wordsFrequency());
-
     }
 }
